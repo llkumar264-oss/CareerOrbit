@@ -16,6 +16,14 @@ if ! docker info >/dev/null 2>&1; then
   echo 'Start Docker Desktop or Docker Engine, then run this script again.' >&2
   exit 1
 fi
+if ! docker compose version >/dev/null 2>&1; then
+  echo 'Docker Compose is missing. Update Docker Desktop or install the Docker Compose plugin.' >&2
+  exit 1
+fi
+if ! command -v curl >/dev/null; then
+  echo 'Install curl to run the startup readiness check, then try again.' >&2
+  exit 1
+fi
 if [[ ! -f .env ]]; then
   docker run --rm -i --user "$(id -u):$(id -g)" --mount "type=bind,source=$project_dir,target=/project" --workdir /project python:3.12-slim python - <<'PY'
 from pathlib import Path

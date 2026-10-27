@@ -20,6 +20,13 @@ if ($LASTEXITCODE -ne 0) {
     throw 'Start Docker Desktop and wait until its engine is ready, then run this file again.'
 }
 
+docker compose version *> $null
+if ($LASTEXITCODE -ne 0) { throw 'Docker Compose is missing. Update Docker Desktop, then try again.' }
+$dockerOs = docker info --format '{{.OSType}}'
+if ($LASTEXITCODE -ne 0 -or $dockerOs.Trim() -ne 'linux') {
+    throw 'CareerOrbit needs Linux containers. In Docker Desktop, switch to Linux containers and try again.'
+}
+
 if (-not (Test-Path '.env')) {
     $rng = [System.Security.Cryptography.RandomNumberGenerator]::Create()
     try {
