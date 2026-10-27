@@ -1,0 +1,27 @@
+CareerOrbit — apne computer par chalane ke liye
+
+1. ZIP ko extract karein. Extracted CareerOrbit folder mein ye file milegi.
+2. Docker Desktop install karke open karein aur engine ready hone dein.
+3. Windows: START-WINDOWS.bat double-click karein.
+   Mac/Linux: is folder mein Terminal kholkar: bash START-MAC-LINUX.sh
+4. Pehli baar images/dependencies download hongi; internet aur kuch minutes lagenge.
+5. Ready hone par apne browser mein localhost:3000 kholein.
+
+Windows agar downloaded script block kare:
+CareerOrbit folder mein PowerShell kholkar pehle:
+  Unblock-File .\scripts\start-windows.ps1
+Phir START-WINDOWS.bat dobara chalayein. Global execution policy badalne ki zarurat nahi.
+
+Stop: CareerOrbit folder mein terminal se docker compose stop
+Restart: wahi START file dobara chalayein.
+
+Is ZIP mein code hai. Aapke profiles/resumes, database, credentials aur cloud ka
+private data is ZIP mein nahi hai. Har device par naya local database banta hai.
+Gmail/Outlook aur paid discovery APIs ko apni credentials se configure karein;
+local app shuru karne ke liye unki zarurat nahi hai.
+
+Cloud par chal raha localhost aur aapke device ka localhost alag hain.
+Doosre device par ZIP copy/download karke setup dobara run karein.
+Mobile/tablet par Docker Desktop nahi chalta; unke liye deployed HTTPS site chahiye.
+
+Details: README.md, docs/PROVIDERS.md, docs/DEPLOYMENT.md, docs/STATUS.md
